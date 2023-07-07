@@ -174,7 +174,8 @@ button{
     align-items: center;
     display: flex;
     text-align: center;
-    padding: 3%;
+    padding: 5%;
+    margin-top: 10%;
   }
 
 .type-con .para{
@@ -315,7 +316,8 @@ padding: 30px;
 .type-con{
     display: block;
     text-align: center;
-    margin-top: 10%;
+    margin-top: 20%;
+    padding: 10%;
 }
 }
 
