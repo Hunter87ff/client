@@ -98,6 +98,7 @@ button{
 
 .type-con img{
   filter: hue-rotate(150deg);
+  transition: .5s;
 }
 .type-con img:hover{
     transition: .5s;
@@ -315,10 +316,6 @@ padding: 30px;
     display: block;
     text-align: center;
     margin-top: 10%;
-}
-.type-con img{
-    transition: .5s;
-    filter(hue-rotate(150deg))
 }
 }
 
