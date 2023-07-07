@@ -328,7 +328,7 @@ padding: 30px;
     
 }
 .show{
-transition: 1s;
+transition: .5s;
 opacity: 1;
 filter: blur(0px);
 transform: translateX(0%)
