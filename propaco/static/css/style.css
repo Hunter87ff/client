@@ -179,7 +179,7 @@ button{
   }
 
 .type-con .para{
-    font-family: 'Hind Madurai', 'sans-serif';
+    font-family: var(--product);
     text-align: left;
     line-break: auto;
     font-size: 16px;
