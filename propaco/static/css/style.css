@@ -21,7 +21,6 @@
 }
 body{
     font-family: var(--bebas);
-    cursor: pointer;
 }
 a{
     text-decoration: none;
@@ -97,10 +96,12 @@ button{
     font-weight: 700;
 }
 
+.type-con img{
+  filter: hue-rotate(150deg);
+}
 .type-con img:hover{
     transition: .5s;
-    filter: hue-rotate(80deg);
-    filter: drop-shadow(10px 5px 8px #2b2b2b); 
+    filter: hue-rotate(80deg) drop-shadow(10px 5px 8px #2b2b2b); 
   }
 
 @media screen and (min-width: 850px) {
@@ -317,6 +318,7 @@ padding: 30px;
 }
 .type-con img{
     transition: .5s;
+    filter(hue-rotate(150deg))
 }
 }
 
