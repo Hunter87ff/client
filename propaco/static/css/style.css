@@ -55,6 +55,7 @@ button{
     cursor: pointer;
 }
 .cont{
+    display: grid;
     position: relative;
     overflow-x: hidden;
 }
@@ -96,11 +97,13 @@ button{
     cursor: pointer;
     font-weight: 700;
 }
-
+.type-con img{
+    filter: hue-rotate(150deg);
+    transition: .5s;
+}
 .type-con img:hover{
     transition: .5s;
-    filter: hue-rotate(80deg);
-    filter: drop-shadow(10px 5px 8px #2b2b2b); 
+    filter:hue-rotate(80deg) drop-shadow(10px 5px 8px #2b2b2b); 
   }
 
 @media screen and (min-width: 850px) {
@@ -280,6 +283,11 @@ button{
     cursor: pointer;
     transition: .5s ease;
 }
+.cont{
+    display: grid;
+    place-items: center;
+    align-content: center;
+}
 .devider-mob{
     height: 1px;
     width: 80%;
@@ -311,12 +319,19 @@ padding: 30px;
     color: rgb(14, 139, 197);
 }
 .type-con{
-    display: block;
+    opacity: 0;
     text-align: center;
     margin-top: 10%;
+    transition: all 1s;
+    filter:blur(8px);
+    transform: translateX(-50%)
+    
 }
-.type-con img{
-    transition: .5s;
+.show{
+transition: 1s;
+opacity: 1;
+filter: blur(0px);
+transform: translateX(0%)
 }
 }
 
