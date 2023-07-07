@@ -5,19 +5,39 @@
 :root {
     --nav-height: 50px; 
     --header-height:50px;
-    --bebas:bebas neue;
-    --bree:bree serif;
+    /* FONT FAMILY */
+    --bebas:"bebas neue";
+    --bree:"bree serif";
     --madurai:'Hind Madurai', sans-serif;
     --gotham:"Gotham Light";
+    --product:Product Sans;
   }
 
 @import url('https://fonts.googleapis.com/css2?family=Hind+Madurai&display=swap');
 @import url("/static/font/gotham_light.otf"); 
-
-
-
+@font-face{font-family:'Product Sans';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/productsans/v9/pxiDypQkot1TnFhsFMOfGShVGdeOcEg.woff2)format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;}@font-face{font-family:'Product Sans';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/productsans/v9/pxiDypQkot1TnFhsFMOfGShVF9eO.woff2)format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'san-bo';font-style:normal;font-weight:400;src:url("https://fontsfree.net//wp-content/fonts/basic/sans-serif/FontsFree-Net-ProductSans-Bold.ttf")format('ttf');
+  
+}
 body{
     font-family: var(--bebas);
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+    font-family:Product Sans ;
+}
+
+button{
+    height:auto;
+    padding: 10px;
+    background: rgb(19, 145, 248);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-family: Product Sans;
+    text-align: center;
+    font-size: 16px;
 }
 .header{
     height: var(--header-height);
@@ -31,9 +51,11 @@ body{
     padding-bottom: 20px;
     z-index: 5;
 }
+.logo{
+    cursor: pointer;
+}
 .cont{
     position: relative;
-
     overflow-x: hidden;
 }
 .landing-vdo{
@@ -49,6 +71,38 @@ body{
     box-shadow: 0px 4px 10px 1px rgb(187, 187, 187);
 }
 
+.img-100w{
+    width: 100%;
+    transition: .1s;
+}
+.heading{
+    font-size: 40px;
+    color: #aa1bfd;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 10%;
+    font-family: var(--bebas);
+}
+.para{
+    font-family: Product Sans;
+    cursor: pointer;
+    font-size: 14px;
+    color: #444444;
+    word-spacing: 3px;
+}
+.know-more{
+    color: blue;
+    font-family: var(--product-sans);
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.type-con img:hover{
+    transition: .5s;
+    filter: hue-rotate(80deg);
+    filter: drop-shadow(10px 5px 8px #2b2b2b); 
+  }
+
 @media screen and (min-width: 850px) {
 .header .nav{
     display: inline-flex;
@@ -60,7 +114,7 @@ body{
 }
 .header .logo{
     margin-top: 15px;
-    margin-left: 10px;
+    margin-left: 15px;
     z-index: 6;
     background: #fff;
 }
@@ -70,6 +124,7 @@ body{
     font-size: 19px;
     cursor: pointer;
     font-family: 'Hind Madurai', sans-serif;
+    color: #444444;
 }
 .nav li:hover{
     border-top: none;
@@ -80,12 +135,14 @@ body{
 #menu-btn{
     display: none;
 }
-
+.devider-mob{
+    display: none;
+}
 .line-1{
     width: 100%;
     height: 1px;
     position: inherit;
-    background: linear-gradient(86deg, rgba(255,255,255,1) 4%, rgba(14,118,188,1) 48%, rgba(255,255,255,1) 94%);
+    background: linear-gradient(86deg, #ffffff 4%, #0e76bc 48%, #ffffff 94%);
     text-align: center;
 }
 .lfo-con{
@@ -95,9 +152,8 @@ body{
     position: inherit;
     padding: 20px;
     text-align: center;
-    margin: 20%;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    align-items: center;
+    justify-content: center;
 }
 #lfo{
     display: inline-flex; 
@@ -109,7 +165,23 @@ body{
   #lfo p span{
     font-weight: 700px;
     padding-left: 15px;
+    font-family: var(--product);
   }
+
+.type-con{
+    align-items: center;
+    display: flex;
+    text-align: center;
+    padding: 3%;
+  }
+
+.type-con .para{
+    font-family: 'Hind Madurai', 'sans-serif';
+    text-align: left;
+    line-break: auto;
+    font-size: 16px;
+  } 
+
 }
 
 /* MOBILE VIEW */
@@ -117,6 +189,11 @@ body{
 @media screen and (max-width: 849px) {
 .header{
     height: 40px;
+}
+.header .logo{
+    margin-top: 5px;
+    margin-left:5px;
+    transition: .1s;
 }
 .menu-button {
     width: 30px;
@@ -203,6 +280,15 @@ body{
     cursor: pointer;
     transition: .5s ease;
 }
+.devider-mob{
+    height: 1px;
+    width: 80%;
+    background: grey;
+    border-bottom: 1px grey solid;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 10%;
+}
 .lfo-con{
 padding: 30px;
 }
@@ -224,6 +310,13 @@ padding: 30px;
     font-size: 40px;
     color: rgb(14, 139, 197);
 }
-
+.type-con{
+    display: block;
+    text-align: center;
+    margin-top: 10%;
+}
+.type-con img{
+    transition: .5s;
+}
 }
 
