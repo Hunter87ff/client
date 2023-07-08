@@ -1,97 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="static/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.1.0/css/all.css" integrity="sha512-ajhUYg8JAATDFejqbeN7KbF2zyPbbqz04dgOLyGcYEk/MJD3V+HJhJLKvJ2VVlqrr4PwHeGTTWxbI+8teA7snw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?display=swap&family=Pacifico&family=Bree+Serif&family=Bebas+Neue">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
-<style>
-    .menu-button {
-  width: 30px;
-  height: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-}
-
-.bar {
-  width: 100%;
-  height: 3px;
-  background-color: black;
-  transition: transform 0.3s ease;
-}
-
-.menu-open .bar:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
-}
-
-.menu-open .bar:nth-child(2) {
-  display: none;
-}
-
-.menu-open .bar:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
-}
-
-.menu {
-  /* Additional styles for your menu */
-  display: none;
-}
-
-.menu.show {
-  display: flex;
-}
-
-</style>
 <body>
-    <header class="header">
-        <img src="static/img/logo.png" class="logo">
-        <div class="menu-button" id="menu-btn" onclick="toggleMenu()">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-          </div>
-        <!--<i id="menu-btn" onclick="menu_toggle()" class="fa-solid fa-bars"></i>-->
-        <ul class="nav">
-            <li>Performance</li>
-            <li>Agency</li>
-            <li>Production Studio</li>
-            <li>Influencer Marketing</li>
-            <li>GameX</li>
-            <li>Why Us?</li>
-        </ul>
-    </header>
-    <section class="cont">
-        <video class="landing-vdo" disableremoteplayback="" autobuffer="" autoplay="" loop="" muted="" playsinline="" type="video/mp4" src="https://www.icubeswire.com/image/Final_D.mp4" ></video>
-    </section>
-
-    <script>
-        var nav = document.querySelector(".nav")
-        var sidebtn = document.querySelector("#menu-btn")
-        var count = 0
-        function menu_toggle(){
-            nav.classList.toggle('show');
-            if(count==0){
-                sidebtn.className= "fa-solid fa-xmark";
-                count=1
-            }else{
-                count=0;
-                sidebtn.className= "fa-solid fa-bars";
-            }
-        }
-
-    function toggleMenu() {
-      var menu = document.querySelector(".nav")
-      var menuButton = document.querySelector('.menu-button');
-      menuButton.classList.toggle('menu-open');
-      menu.classList.toggle("show")
+  <div id="element"></div>
+  <br>
+  <img src="static/img/com/flipkart.webp" class="flt">
+  <style>
+body{
+  min-height: 700px;
+  min-width: 100%;
+  place-items: center;
+  justify-content: center;
+  display: flex;
 }
-    </script>
+.flt{
+  filter: saturate(0);
+}
+.flt:hover{
+filter: saturate(100%);
+}
+#element {
+  width: 100px;
+  height: 100px;
+  background-color: #ccc;
+  transition: box-shadow 0.3s ease;
+  border-radius: 50%;
+}
+
+.shadow-top {
+  box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.5);
+}
+
+.shadow-bottom {
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+.shadow-left {
+  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.shadow-right {
+  box-shadow: 10px 0 10px rgba(0, 0, 0, 0.5);
+}
+
+  </style>
+  <script>
+var element = document.getElementById('element');
+document.addEventListener('mousemove', handleMouseMove);
+function handleMouseMove(event) {
+  // Get the x and y coordinates of the mouse pointer
+  var mouseX = event.clientX;
+  var mouseY = event.clientY;
+
+  // Get the position and dimensions of the element
+  var elementRect = element.getBoundingClientRect();
+  var elementX = elementRect.left;
+  var elementY = elementRect.top;
+  var elementWidth = elementRect.width;
+  var elementHeight = elementRect.height;
+
+  // Calculate the distance between the mouse pointer and the element edges
+  var distX = mouseX - elementX;
+  var distY = mouseY - elementY;
+
+  // Remove existing shadow classes
+  element.classList.remove('shadow-top', 'shadow-bottom', 'shadow-left', 'shadow-right');
+
+  // Add shadow class based on the mouse pointer direction
+  if (distY < 0 && Math.abs(distY) > Math.abs(distX)) {
+    element.classList.add('shadow-top');
+  } else if (distY > elementHeight && Math.abs(distY - elementHeight) > Math.abs(distX)) {
+    element.classList.add('shadow-bottom');
+  } else if (distX < 0 && Math.abs(distX) > Math.abs(distY)) {
+    element.classList.add('shadow-left');
+  } else if (distX > elementWidth && Math.abs(distX - elementWidth) > Math.abs(distY)) {
+    element.classList.add('shadow-right');
+  }
+}
+  </script>
 </body>
 </html>
-
