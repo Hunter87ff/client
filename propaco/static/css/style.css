@@ -323,8 +323,8 @@ padding: 30px;
     text-align: center;
     margin-top: 10%;
     transition: all 1s;
-    filter:blur(8px);
-    transform: translateX(-50%)
+    filter:blur(3px);
+    transform: translateX(50%)
     
 }
 .show{
