@@ -430,6 +430,9 @@ opacity: 1;
 filter: blur(0px);
 transform: translateX(0%)
 }
+footer{
+    width: fit-content;
+}
 .row.copyright div{
     display: none;
 }
