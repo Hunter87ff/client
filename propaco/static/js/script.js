@@ -22,7 +22,7 @@ function toggleMenu() {
 
 const observer = new IntersectionObserver((entries) =>{
     entries.forEach((entry)=>{
-        console.log(entry)
+        //console.log(entry)
         if (entry.isIntersecting){
             entry.target.classList.add("show");
         }else{
@@ -32,3 +32,19 @@ const observer = new IntersectionObserver((entries) =>{
 })
 const hiddenelm = document.querySelectorAll(".type-con");
 hiddenelm.forEach((el) => observer.observe(el));
+
+
+function subscribe(){
+    var inp = document.querySelector("#email");
+    var sub = document.querySelector("#sub-btn");
+    if(inp.value==""){
+        alert("Please Enter A Valid Email")
+    }
+    else if(inp.value.includes("@") == false){
+        alert("Please Enter A Valid Email")
+    }
+    else{
+        console.log(this)
+        sub.innerHTML = "Subscribed";
+    }
+};
