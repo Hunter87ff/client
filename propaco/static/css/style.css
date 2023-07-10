@@ -32,25 +32,22 @@ body{
 a{
     text-decoration: none;
 }
-
-button{
-    height:auto;
-    padding: 10px;
-    width: fit-content;
-    background: rgb(19, 145, 248);
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    font-family: Product Sans;
-    text-align: center;
-    font-size: 16px;
-}
+input, button {
+    font-size: 1em;
+    padding: 1em;
+    width: auto;
+    border-radius: 5px;
+    margin-bottom: 5px;
+  }
+  button {
+    background-color: #c7940a;
+    color: #ffffff;
+  }
 .header{
     height: var(--header-height);
     display: flex;
     width: 100%;
     background-color: #fff;
-    /*filter: drop-shadow(30px 10px 4px #4444dd);*/
     transition: .5s;
     position: fixed;
     margin-top: 0px;
@@ -65,7 +62,7 @@ button{
     display: grid;
     position: relative;
     overflow-x: hidden;
-    font-family: ;
+    font-family: var(--poppins);
 }
 .landing-vdo{
     filter: saturate(1);
@@ -114,7 +111,97 @@ button{
     transition: .5s;
     filter:hue-rotate(80deg) drop-shadow(10px 5px 8px #2b2b2b); 
   }
-
+   
+  footer {
+    background-color: #121315;
+    color: #a7a7a7;
+    font-size: 16px;
+    margin-bottom: 0px;
+  }
+  footer * {
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+  }
+  .row {
+    padding: 1em 1em;
+  }
+  .row.primary {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 2fr;
+    align-items: stretch;
+  }
+  .column {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 2em;
+    min-height: 15em;
+  }
+  footer h3 {
+    width: 100%;
+    text-align: left;
+    color: white;
+    font-size: 1.4em;
+    white-space: nowrap;
+  }
+  footer ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+  }
+  footer li:not(:first-child) {
+    margin-top: 0.8em;
+  }
+  footer ul li a {
+    color: #a7a7a7;
+    text-decoration: none;
+  }
+  footer ul li a:hover {
+    color: #2a8ded;
+  }
+  .about p {
+    text-align: justify;
+    line-height: 2;
+    margin: 0;
+  }
+  div.social {
+    display: flex;
+    justify-content: space-around;
+    font-size: 2.4em;
+    flex-direction: row;
+    margin-top: 0.5em;
+  }
+  .social i {
+    color: #bac6d9;
+  }
+  
+  .copyright {
+    padding: 0.3em 1em;
+    background-color: #25262e;
+  }
+  .footer-menu{
+    float: left;
+  }
+  
+  .footer-menu a{
+    color: #cfd2d6;
+    padding: 6px;
+  
+    text-decoration: none;
+  }
+  .footer-menu a:hover{
+    color: #27bcda;
+  }
+  .copyright p {
+    font-size: 0.9em;
+    text-align: right;
+  }
+ 
+  
 @media screen and (min-width: 850px) {
 .header .nav{
     display: inline-flex;
@@ -129,6 +216,9 @@ button{
     margin-left: 15px;
     z-index: 6;
     background: #fff;
+}
+.header *{
+    color: #000;
 }
 .nav li{
     display: flex;
@@ -193,7 +283,6 @@ button{
     line-break: auto;
     font-size: 16px;
   } 
-
 }
 
 /* MOBILE VIEW */
@@ -215,26 +304,21 @@ button{
     justify-content: space-between;
     cursor: pointer;
 }
-
 .bar {
     width: 100%;
     height: 3px;
     background-color: black;
     transition: transform 0.3s ease;
 }
-
 .menu-open .bar:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
 }
-
 .menu-open .bar:nth-child(2) {
     display: none;
 }
-
 .menu-open .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
 }
-
 .menu {
     display: none;
 }
@@ -242,7 +326,6 @@ button{
 .menu.show {
     display: flex;
 }
-
 .nav{
     display: none;
     list-style: none;
@@ -253,7 +336,6 @@ button{
     width: 100%;
     top: 70px;
 }
-
 .nav.show{
     display: flex;
     list-style: none;
@@ -275,9 +357,8 @@ button{
     margin-top: 10px;
     border-radius: 6px;
     justify-content: center;
-/*    box-shadow: 0px 4px 10px 1px #bbbbbb;*/
     cursor: pointer;
-    transition: .2s;
+    transition: .1s;
     border-bottom: 1px solid grey;
 }
 .nav li a{
@@ -342,7 +423,6 @@ padding: 30px;
     filter:blur(3px);
     transform: translateX(50%);
     font-family: var(--madurai);
-    
 }
 .show{
 transition: .5s;
@@ -350,5 +430,16 @@ opacity: 1;
 filter: blur(0px);
 transform: translateX(0%)
 }
+.row.copyright div{
+    display: none;
 }
-
+.row.copyright p{
+text-align: center;
+align-items: center;
+justify-content: center;
+justify-items: center;
+}
+.row.primary {
+    grid-template-columns: 1fr;
+  }
+}
