@@ -2,17 +2,14 @@
     margin: 0;
     padding: 0;
 }
-@import url('https://fonts.googleapis.com/css2?family=Hind+Madurai&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Hind+Madurai&display=swap');*/
 @font-face {
-    font-family: jost;
+    font-family: gotham;
     src: url(./font/gotham_light.otf)format('otf')}
-@font-face{font-family:'Product Sans';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/productsans/v9/pxiDypQkot1TnFhsFMOfGShVGdeOcEg.woff2)format('woff2')}
-@font-face{font-family:'san-bo';font-style:normal;font-weight:400;src:url("https://fontsfree.net//wp-content/fonts/basic/sans-serif/FontsFree-Net-ProductSans-Bold.ttf")format('ttf');
-}
-@font-face {
-    font-family: jost;
-    src: url(./font/jost-variable.ttf);
-}
+@font-face{font-family:'san-bo';font-style:normal;font-weight:400;src:url("https://fontsfree.net//wp-content/fonts/basic/sans-serif/FontsFree-Net-ProductSans-Bold.ttf")format('ttf');}
+@font-face {font-family: jost; src: url(./font/jost-variable.ttf);}
+@import url('https://fonts.googleapis.com/css2?family=Poppins&&family=PT+Sans+Narrow&family=Hind+Madurai&display=swap');
+
 :root {
     --nav-height: 50px; 
     --header-height:50px;
@@ -23,21 +20,23 @@
     --gotham:"Gotham Light";
     --product: "Product Sans";
     --jost: "jost";
+    --poppins: 'Poppins', sans-serif;
+    --sans-narrow:'PT Sans Narrow', sans-serif;
   }
 
 
 body{
-    font-family: jost;
+    font-family: var(--poppins);
     cursor: pointer;
 }
 a{
     text-decoration: none;
-    font-family:Product Sans ;
 }
 
 button{
     height:auto;
     padding: 10px;
+    width: fit-content;
     background: rgb(19, 145, 248);
     color: #fff;
     border: none;
@@ -57,6 +56,7 @@ button{
     margin-top: 0px;
     padding-bottom: 20px;
     z-index: 5;
+    font-family: var(--poppins);
 }
 .logo{
     cursor: pointer;
@@ -78,6 +78,7 @@ button{
 .header:hover{
     /*box-shadow: 0px .5px #666666, -1em 0 .4em transparent;*/
     box-shadow: 0px 4px 10px 1px rgb(187, 187, 187);
+    color: #000;
 }
 
 .img-100w{
@@ -93,7 +94,7 @@ button{
     font-family: var(--bebas);
 }
 .para{
-    font-family: Product Sans;
+    font-family: var(--poppins);
     cursor: pointer;
     font-size: 14px;
     color: #444444;
@@ -176,7 +177,7 @@ button{
   #lfo p span{
     font-weight: 700px;
     padding-left: 15px;
-    font-family: var(--product);
+    font-family: var(--sans-narrow);
   }
 
 .type-con{
@@ -187,7 +188,7 @@ button{
   }
 
 .type-con .para{
-    font-family: var(--product);
+    font-family: var(--poppins);
     text-align: left;
     line-break: auto;
     font-size: 16px;
@@ -274,9 +275,13 @@ button{
     margin-top: 10px;
     border-radius: 6px;
     justify-content: center;
-    box-shadow: 0px 4px 10px 1px #bbbbbb;
+/*    box-shadow: 0px 4px 10px 1px #bbbbbb;*/
     cursor: pointer;
     transition: .2s;
+    border-bottom: 1px solid grey;
+}
+.nav li a{
+    color: #000;
 }
 .nav li:hover{
     font-size: 23px;
@@ -305,6 +310,9 @@ button{
     margin-bottom: 50px;
     margin-left: 10%;
 }
+.line-1{
+    display: none;
+}
 .lfo-con{
 padding: 30px;
 }
@@ -332,7 +340,8 @@ padding: 30px;
     margin-top: 10%;
     transition: all 1s;
     filter:blur(3px);
-    transform: translateX(50%)
+    transform: translateX(50%);
+    font-family: var(--madurai);
     
 }
 .show{
