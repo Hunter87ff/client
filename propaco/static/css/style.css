@@ -322,9 +322,15 @@ footer .row.copyright p{
     padding: 10px; 
     border-left: 3px solid grey;
 }
-.nav img{
+.nav.show img{
     display: flex;
     padding-right: 50px;
+    height: 40px;
+    width: 90px;
+    top: 2px;
+    left: 5px;
+    position: inherit;
+
 }
 .nav .menu-social{
     position: inherit;
