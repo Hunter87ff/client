@@ -276,7 +276,6 @@ footer .row.copyright p{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    cursor: pointer;
     z-index: 6;
 }
 .bar {
