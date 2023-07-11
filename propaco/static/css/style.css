@@ -1,8 +1,10 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-/*@import url('https://fonts.googleapis.com/css2?family=Hind+Madurai&display=swap');*/
+/*  Author : Hunter
+    Github : https://github.com/hunter87ff
+    Insta  : https://instagram.com/im_hunter87
+    Youtube: https://youtube.com/hunter87
+    Discord: https://dsc.gg/spruce 
+*/
+
 @font-face {
     font-family: gotham;
     src: url("./font/gotham_light.otf")format('otf')}
@@ -10,6 +12,10 @@
 @font-face {font-family: jost; src: url(./font/jost-variable.ttf);}
 @import url('https://fonts.googleapis.com/css2?family=Poppins&&family=PT+Sans+Narrow&family=Hind+Madurai&display=swap');
 
+*{
+    margin: 0;
+    padding: 0;
+}
 :root {
     --nav-height: 50px; 
     --header-height:50px;

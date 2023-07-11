@@ -1,4 +1,4 @@
-
+// https://github.com/hunter87ff
 
 function menu_toggle(){
     var nav = document.querySelector(".nav")
@@ -23,7 +23,6 @@ function toggleMenu() {
 
 const observer = new IntersectionObserver((entries) =>{
     entries.forEach((entry)=>{
-        //console.log(entry)
         if (entry.isIntersecting){
             entry.target.classList.add("show");
         }else{
@@ -34,18 +33,26 @@ const observer = new IntersectionObserver((entries) =>{
 const hiddenelm = document.querySelectorAll(".type-con");
 hiddenelm.forEach((el) => observer.observe(el));
 
-
 function subscribe(){
     var inp = document.querySelector("#email");
     var sub = document.querySelector("#sub-btn");
     if(inp.value==""){
         alert("Please Enter A Valid Email")
-    }
-    else if(inp.value.includes("@") == false){
+    }else if(inp.value.includes("@") == false){
         alert("Please Enter A Valid Email")
-    }
-    else{
+    }else{
         console.log(this)
         sub.innerHTML = "Subscribed";
     }
 };
+
+function cont_touch(){
+    var menu = document.querySelector(".nav");
+    var menuButton = document.querySelector('.menu-button');
+    var cont = document.querySelector(".cont");
+    cont.addEventListener("click", function(){
+        menuButton.classList.remove('menu-open');
+        menu.classList.remove("show")
+    });
+}
+cont_touch()
