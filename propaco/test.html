@@ -1,86 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>doc</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-  <div id="element"></div>
-  <br>
-  <img src="static/img/com/flipkart.webp" class="flt">
-  <style>
-body{
-  min-height: 700px;
-  min-width: 100%;
-  place-items: center;
-  justify-content: center;
-  display: flex;
-}
-.flt{
-  filter: saturate(0);
-}
-.flt:hover{
-filter: saturate(100%);
-}
-#element {
-  width: 100px;
-  height: 100px;
-  background-color: #ccc;
-  transition: box-shadow 0.3s ease;
-  border-radius: 50%;
-}
+<i id="voice" onclick="toggle()" class="fa-solid fa-volume-xmark"></i>
 
-.shadow-top {
-  box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.5);
-}
+<script type="text/javascript">
+const voiceElement = document.getElementById("voice");
+voiceElement.addEventListener("click", function() {
+  this.className.toggle("fa-solid fa-volume-high")
+});
+</script>
 
-.shadow-bottom {
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
-}
 
-.shadow-left {
-  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.5);
-}
 
-.shadow-right {
-  box-shadow: 10px 0 10px rgba(0, 0, 0, 0.5);
-}
-
-  </style>
-  <script>
-var element = document.getElementById('element');
-document.addEventListener('mousemove', handleMouseMove);
-function handleMouseMove(event) {
-  // Get the x and y coordinates of the mouse pointer
-  var mouseX = event.clientX;
-  var mouseY = event.clientY;
-
-  // Get the position and dimensions of the element
-  var elementRect = element.getBoundingClientRect();
-  var elementX = elementRect.left;
-  var elementY = elementRect.top;
-  var elementWidth = elementRect.width;
-  var elementHeight = elementRect.height;
-
-  // Calculate the distance between the mouse pointer and the element edges
-  var distX = mouseX - elementX;
-  var distY = mouseY - elementY;
-
-  // Remove existing shadow classes
-  element.classList.remove('shadow-top', 'shadow-bottom', 'shadow-left', 'shadow-right');
-
-  // Add shadow class based on the mouse pointer direction
-  if (distY < 0 && Math.abs(distY) > Math.abs(distX)) {
-    element.classList.add('shadow-top');
-  } else if (distY > elementHeight && Math.abs(distY - elementHeight) > Math.abs(distX)) {
-    element.classList.add('shadow-bottom');
-  } else if (distX < 0 && Math.abs(distX) > Math.abs(distY)) {
-    element.classList.add('shadow-left');
-  } else if (distX > elementWidth && Math.abs(distX - elementWidth) > Math.abs(distY)) {
-    element.classList.add('shadow-right');
+<!-- <script type="text/javascript">
+var voice = document.querySelector("#voice");
+var count = 0;
+function toggle(){
+  if (count == 0){
+    count=1;
+    voice.className = "fa-solid fa-volume-high";
+  }else{
+    count = 0
+    voice.className = "fa-solid fa-volume-xmark";
   }
 }
-  </script>
+</script> -->
+
+
+<style type="text/css">
+  *{
+    color: #000;
+    font-size: 40px;
+  }
+  #voice{
+    font-size: 40px;
+    color: #ff0000;
+  }
+</style>
 </body>
 </html>
