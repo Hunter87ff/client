@@ -5,43 +5,165 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>doc</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
-<i id="voice" onclick="toggle()" class="fa-solid fa-volume-xmark"></i>
+    <style>
+      *{
+        padding: 0;
+        margin: 0;
+      }
+      header{
+        height: 10%;
+        width: 100%;
+        display: flex;
+        background: purple;
+        color: #fff;
+        flex-direction: row;
+        align-content: center;
+      }
+      header .logo{
+        order: 1;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        margin-right: 10%;
 
-<script type="text/javascript">
-const voiceElement = document.getElementById("voice");
-voiceElement.addEventListener("click", function() {
-  this.className.toggle("fa-solid fa-volume-high")
-});
-</script>
+      }
+      section{
+        min-height:100vh;
+        padding:10px;
+        background:grey;
+        display: block;
+        overflow: hidden;
+      }
+
+      .chat{
+        display: flex;
+        height: 100%;
+        width: 100%;
+        flex-direction: column;
+        overflow-x: hidden;
+      }
+      .chat *{
+        display: block;
+        border-radius: 6px;
+        padding: 10px;
+        border: none;
+        width: 100%;
+        border-left: 5px solid black;
+        overflow: scroll;
+        height: auto;
+        word-wrap: auto;
+      }
+
+      .chat  .user-chat{
+        background: #00ff00;
+        color: #000;
+        margin-left: 30%;
+      }
+
+      .chat .bot-chat{
+        background: #fff;
+        color: #000;
+        margin-right: 30%;
+      }
+      section .qry{
+        position:fixed;
+        display:flex;
+        flex-direction:row;
+        bottom: 0px;
+        width: 100%;
+      }
+      .qry input{
+        height: 50px;
+        width: 70%;
+        order: 1;
+        border-radius:6px;
+        border: 1px solid grey;
+      }
+      .qry button{
+        height: 50px;
+        width: 20%;
+        order: 2;
+        border-radius:6px;
+        color:#fff;
+        background:green;
+        border: none;
+        margin-left: 5px;
+      }
+      .qry .typ{
+        display: none;
+        color: #cyan;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="https://avatars.githubusercontent.com/u/105124146?s=200&v=4" class="logo">
+      <h1 style="order: 2;">Spruce Chat</h1>
+    </header>
+    <section id="cont">
+      <div class="chat">
+          <div class="user-chat">hello</div>
+          <br>
+          <div class="bot-chat">hii how are you</div>
+          <br>
+          <div class="user-chat">yoo</div>
+          <br>
+          <div class="bot-chat">yoo!! how are you buddy</div>
+      </div>
+
+
+      <div class="qry">
+        <p class="typ">Typing...</p>
+        <br>
+      <input onkeypress="handleKeyPress(event)" name="q" id="inp">
+      <button id="send" onclick="ask()">Send</button>
+      </div>
+    </section>
+    <script>
+      var ch = document.querySelector(".user-chat");
+      ch.style = `max-widht : ${window.innerWidth}`;
+      console.log(window.innerWidth)
+      function sleep(ms) {
+        var start = Date.now();
+        while (Date.now() - start < ms) {
+        }
+      }
+
+      function handleKeyPress(event) {
+            console.log(event.keyCode);
+            if (event.keyCode === 13) {
+              document.getElementById("send").click();
+            }
+          }
 
 
 
-<!-- <script type="text/javascript">
-var voice = document.querySelector("#voice");
-var count = 0;
-function toggle(){
-  if (count == 0){
-    count=1;
-    voice.className = "fa-solid fa-volume-high";
-  }else{
-    count = 0
-    voice.className = "fa-solid fa-volume-xmark";
-  }
-}
-</script> -->
+      function ask(){
+        var chat = document.querySelector(".chat");
+        var inp = document.querySelector("#inp");
+        var typ = document.querySelector(".typ");
+        chat.innerHTML = chat.innerHTML + `<div class='user-chat'>${inp.value}</div><br>`;
+        typ.style.display = "block";
+ 
+        const url = `https://dashboard.87-hunter.repl.co/api/query?q=${inp.value}`;
+        fetch(url).then(response => response.json()).then(data => {
+          console.log(data.a);
+          typ.style.display = "none";
+          chat.innerHTML = chat.innerHTML + `<div class="bot-chat">${data.a}</div>`
+          inp.value = "";
+          })
+
+        .catch(error => {
+            console.log('An error occurred:', error);
+            chat.innerHTML = chat.innerHTML + `Sorry but i didn't understand!!`
+            //return "Sorry but i didn't understand!!";
+          });
+        }
+    </script>
+    <script type="text/javascript">
+      
 
 
-<style type="text/css">
-  *{
-    color: #000;
-    font-size: 40px;
-  }
-  #voice{
-    font-size: 40px;
-    color: #ff0000;
-  }
-</style>
-</body>
+    </script>
+  </body>
 </html>
